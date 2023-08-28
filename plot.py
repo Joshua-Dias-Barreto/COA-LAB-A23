@@ -3,19 +3,19 @@ import matplotlib.pyplot as plt
 # Example data
 applications = ['BFS', 'Path Finder', 'Needleman Wunsch']
 gpu="RTX2060"
-fn=f"{gpu}_ipc"
-gto_bfs=121.84
-lrr_bfs=120.37
-tl_bfs=122.26
+fn=f"{gpu}_l1miss"
+gto_bfs=0.5869
+lrr_bfs=0.5865
+tl_bfs=0.5875
 
-gto_nw=3.64
-lrr_nw=3.64
-tl_nw=3.645
+gto_nw=0.8661
+lrr_nw=0.8661
+tl_nw=0.8661
 
-gto_pf=657.16
-lrr_pf=638.54
-tl_pf=642.20
-title=f"IPC Comparison with Different Warp Schedulers for {gpu}"
+gto_pf=1
+lrr_pf=1
+tl_pf=1
+title=f"L1 Miss Rate Comparison with Different Warp Schedulers for {gpu}"
 
 gto = [
         gto_bfs,
@@ -65,6 +65,7 @@ add_labels(bars3)
 plt.xlabel('Application')
 plt.ylabel('Instruction per Cycle (IPC)')
 plt.title(title)
+plt.ylim(0, 1.3)
 plt.xticks([i + bar_width for i in index], applications)
 plt.legend()
 
@@ -74,4 +75,4 @@ plt.tight_layout()
 # plt.show()
 
 # save the plot as a file
-plt.savefig(f'./Lab4/graphs/{fn}.png', bbox_inches='tight')
+plt.savefig(f'./Lab4/graphs/L1Miss/{fn}.png', bbox_inches='tight')
