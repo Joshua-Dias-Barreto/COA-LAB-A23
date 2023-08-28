@@ -32,7 +32,8 @@ matches = [
     "L2_total_cache_miss_rate",
     "(inst/sec)",
     "(cycle/sec)",
-    "gpgpu_simulation_time"
+    "gpgpu_simulation_time",
+    "gpu_tot_ipc"
 ]
 fo=open("./output/bfs/final_outputs.txt", "w")
 for filepth in files:

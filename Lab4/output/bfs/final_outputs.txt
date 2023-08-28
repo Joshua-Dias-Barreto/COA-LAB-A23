@@ -1,4 +1,5 @@
 BFS GTX480 GTO
+gpu_tot_ipc =      58.5968
 L1D_total_cache_accesses = 1187084
 L1D_total_cache_misses = 976392
 L1D_total_cache_miss_rate = 0.8225
@@ -10,6 +11,7 @@ gpgpu_simulation_rate = 205092 (inst/sec)
 gpgpu_simulation_rate = 3500 (cycle/sec)
 
 BFS GTX480 LRR
+gpu_tot_ipc =      57.1494
 L1D_total_cache_accesses = 1187084
 L1D_total_cache_misses = 976954
 L1D_total_cache_miss_rate = 0.8230
@@ -21,6 +23,7 @@ gpgpu_simulation_rate = 224553 (inst/sec)
 gpgpu_simulation_rate = 3929 (cycle/sec)
 
 BFS GTX480 TL
+gpu_tot_ipc =      57.4713
 L1D_total_cache_accesses = 1187084
 L1D_total_cache_misses = 974497
 L1D_total_cache_miss_rate = 0.8209
@@ -32,6 +35,7 @@ gpgpu_simulation_rate = 248095 (inst/sec)
 gpgpu_simulation_rate = 4316 (cycle/sec)
 
 BFS KEPLERTITAN GTO
+gpu_tot_ipc =     115.2697
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 1487379
@@ -42,6 +46,7 @@ gpgpu_simulation_rate = 284850 (inst/sec)
 gpgpu_simulation_rate = 2471 (cycle/sec)
 
 BFS KEPLERTITAN LRR
+gpu_tot_ipc =     111.8543
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 1487379
@@ -52,6 +57,7 @@ gpgpu_simulation_rate = 290225 (inst/sec)
 gpgpu_simulation_rate = 2594 (cycle/sec)
 
 BFS KEPLERTITAN TL
+gpu_tot_ipc =     112.7910
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 1487379
@@ -62,6 +68,7 @@ gpgpu_simulation_rate = 292989 (inst/sec)
 gpgpu_simulation_rate = 2597 (cycle/sec)
 
 BFS QV100 GTO
+gpu_tot_ipc =     101.3666
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 1487015
@@ -72,6 +79,7 @@ gpgpu_simulation_rate = 210711 (inst/sec)
 gpgpu_simulation_rate = 2078 (cycle/sec)
 
 BFS QV100 LRR
+gpu_tot_ipc =      97.8242
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 1487015
@@ -82,6 +90,7 @@ gpgpu_simulation_rate = 224553 (inst/sec)
 gpgpu_simulation_rate = 2295 (cycle/sec)
 
 BFS QV100 TL
+gpu_tot_ipc =      98.0865
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 1487015
@@ -92,6 +101,7 @@ gpgpu_simulation_rate = 226204 (inst/sec)
 gpgpu_simulation_rate = 2306 (cycle/sec)
 
 BFS RTX2060 GTO
+gpu_tot_ipc =     121.8491
 L1D_total_cache_accesses = 1487015
 L1D_total_cache_misses = 872659
 L1D_total_cache_miss_rate = 0.5869
@@ -103,6 +113,7 @@ gpgpu_simulation_rate = 277151 (inst/sec)
 gpgpu_simulation_rate = 2274 (cycle/sec)
 
 BFS RTX2060 LRR
+gpu_tot_ipc =     120.3702
 L1D_total_cache_accesses = 1487015
 L1D_total_cache_misses = 872152
 L1D_total_cache_miss_rate = 0.5865
@@ -114,6 +125,7 @@ gpgpu_simulation_rate = 282237 (inst/sec)
 gpgpu_simulation_rate = 2344 (cycle/sec)
 
 BFS RTX2060 TL
+gpu_tot_ipc =     122.2675
 L1D_total_cache_accesses = 1487015
 L1D_total_cache_misses = 873590
 L1D_total_cache_miss_rate = 0.5875
@@ -125,6 +137,7 @@ gpgpu_simulation_rate = 265205 (inst/sec)
 gpgpu_simulation_rate = 2169 (cycle/sec)
 
 BFS TITANV GTO
+gpu_tot_ipc =     301.0692
 L1D_total_cache_accesses = 1487015
 L1D_total_cache_misses = 734011
 L1D_total_cache_miss_rate = 0.4936
@@ -136,6 +149,7 @@ gpgpu_simulation_rate = 152296 (inst/sec)
 gpgpu_simulation_rate = 505 (cycle/sec)
 
 BFS TITANV LRR
+gpu_tot_ipc =     300.9426
 L1D_total_cache_accesses = 1487015
 L1D_total_cache_misses = 734002
 L1D_total_cache_miss_rate = 0.4936
@@ -147,6 +161,7 @@ gpgpu_simulation_rate = 154592 (inst/sec)
 gpgpu_simulation_rate = 513 (cycle/sec)
 
 BFS TITANV TL
+gpu_tot_ipc =     301.3878
 L1D_total_cache_accesses = 1487015
 L1D_total_cache_misses = 734069
 L1D_total_cache_miss_rate = 0.4937
@@ -158,6 +173,7 @@ gpgpu_simulation_rate = 131469 (inst/sec)
 gpgpu_simulation_rate = 436 (cycle/sec)
 
 BFS TITANX GTO
+gpu_tot_ipc =     101.3666
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 1487015
@@ -168,6 +184,7 @@ gpgpu_simulation_rate = 210711 (inst/sec)
 gpgpu_simulation_rate = 2078 (cycle/sec)
 
 BFS TITANX LRR
+gpu_tot_ipc =      97.8242
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 1487015
@@ -178,6 +195,7 @@ gpgpu_simulation_rate = 229581 (inst/sec)
 gpgpu_simulation_rate = 2346 (cycle/sec)
 
 BFS TITANX TL
+gpu_tot_ipc =      98.0865
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 1487015

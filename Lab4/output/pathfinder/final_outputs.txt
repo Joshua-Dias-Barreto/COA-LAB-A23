@@ -1,4 +1,5 @@
 PATHFINDER GTX480 GTO
+gpu_tot_ipc =     467.7245
 L1D_total_cache_accesses = 76733
 L1D_total_cache_misses = 43515
 L1D_total_cache_miss_rate = 0.5671
@@ -10,6 +11,7 @@ gpgpu_simulation_rate = 635491 (inst/sec)
 gpgpu_simulation_rate = 1358 (cycle/sec)
 
 PATHFINDER GTX480 LRR
+gpu_tot_ipc =     540.9969
 L1D_total_cache_accesses = 76733
 L1D_total_cache_misses = 43508
 L1D_total_cache_miss_rate = 0.5670
@@ -21,6 +23,7 @@ gpgpu_simulation_rate = 669293 (inst/sec)
 gpgpu_simulation_rate = 1237 (cycle/sec)
 
 PATHFINDER GTX480 TL
+gpu_tot_ipc =     487.3926
 L1D_total_cache_accesses = 76733
 L1D_total_cache_misses = 43508
 L1D_total_cache_miss_rate = 0.5670
@@ -32,6 +35,7 @@ gpgpu_simulation_rate = 587977 (inst/sec)
 gpgpu_simulation_rate = 1206 (cycle/sec)
 
 PATHFINDER KEPLER_TITAN GTO
+gpu_tot_ipc =     926.3036
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 186581
@@ -42,6 +46,7 @@ gpgpu_simulation_rate = 547074 (inst/sec)
 gpgpu_simulation_rate = 590 (cycle/sec)
 
 PATHFINDER KEPLER_TITAN LRR
+gpu_tot_ipc =     876.5150
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 186581
@@ -52,6 +57,7 @@ gpgpu_simulation_rate = 542358 (inst/sec)
 gpgpu_simulation_rate = 618 (cycle/sec)
 
 PATHFINDER KEPLER_TITAN TL
+gpu_tot_ipc =     886.8442
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 186581
@@ -62,6 +68,7 @@ gpgpu_simulation_rate = 533166 (inst/sec)
 gpgpu_simulation_rate = 601 (cycle/sec)
 
 PATHFINDER QV100 GTO
+gpu_tot_ipc =     782.4785
 L1D_total_cache_accesses = 186105
 L1D_total_cache_misses = 186105
 L1D_total_cache_miss_rate = 1.0000
@@ -73,6 +80,7 @@ gpgpu_simulation_rate = 268861 (inst/sec)
 gpgpu_simulation_rate = 343 (cycle/sec)
 
 PATHFINDER QV100 LRR
+gpu_tot_ipc =     777.0471
 L1D_total_cache_accesses = 186105
 L1D_total_cache_misses = 186105
 L1D_total_cache_miss_rate = 1.0000
@@ -84,6 +92,7 @@ gpgpu_simulation_rate = 275936 (inst/sec)
 gpgpu_simulation_rate = 355 (cycle/sec)
 
 PATHFINDER QV100 TL
+gpu_tot_ipc =     773.3886
 L1D_total_cache_accesses = 186105
 L1D_total_cache_misses = 186105
 L1D_total_cache_miss_rate = 1.0000
@@ -95,6 +104,7 @@ gpgpu_simulation_rate = 266583 (inst/sec)
 gpgpu_simulation_rate = 344 (cycle/sec)
 
 PATHFINDER RTX2060 GTO
+gpu_tot_ipc =     657.1642
 L1D_total_cache_accesses = 186105
 L1D_total_cache_misses = 186105
 L1D_total_cache_miss_rate = 1.0000
@@ -106,6 +116,7 @@ gpgpu_simulation_rate = 353447 (inst/sec)
 gpgpu_simulation_rate = 537 (cycle/sec)
 
 PATHFINDER RTX2060 LRR
+gpu_tot_ipc =     638.5483
 L1D_total_cache_accesses = 186105
 L1D_total_cache_misses = 186105
 L1D_total_cache_miss_rate = 1.0000
@@ -117,6 +128,7 @@ gpgpu_simulation_rate = 246720 (inst/sec)
 gpgpu_simulation_rate = 386 (cycle/sec)
 
 PATHFINDER RTX2060 TL
+gpu_tot_ipc =     642.2050
 L1D_total_cache_accesses = 186105
 L1D_total_cache_misses = 186105
 L1D_total_cache_miss_rate = 1.0000
@@ -128,6 +140,7 @@ gpgpu_simulation_rate = 247691 (inst/sec)
 gpgpu_simulation_rate = 385 (cycle/sec)
 
 PATHFINDER TITANV GTO
+gpu_tot_ipc =     997.5363
 L1D_total_cache_accesses = 186105
 L1D_total_cache_misses = 186105
 L1D_total_cache_miss_rate = 1.0000
@@ -139,6 +152,7 @@ gpgpu_simulation_rate = 283394 (inst/sec)
 gpgpu_simulation_rate = 284 (cycle/sec)
 
 PATHFINDER TITANV LRR
+gpu_tot_ipc =     986.0450
 L1D_total_cache_accesses = 186105
 L1D_total_cache_misses = 186105
 L1D_total_cache_miss_rate = 1.0000
@@ -150,6 +164,7 @@ gpgpu_simulation_rate = 287276 (inst/sec)
 gpgpu_simulation_rate = 291 (cycle/sec)
 
 PATHFINDER TITANV TL
+gpu_tot_ipc =     987.2674
 L1D_total_cache_accesses = 186105
 L1D_total_cache_misses = 186105
 L1D_total_cache_miss_rate = 1.0000
@@ -161,6 +176,7 @@ gpgpu_simulation_rate = 277152 (inst/sec)
 gpgpu_simulation_rate = 280 (cycle/sec)
 
 PATHFINDER TITANX GTO
+gpu_tot_ipc =     694.7405
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 186105
@@ -171,6 +187,7 @@ gpgpu_simulation_rate = 385973 (inst/sec)
 gpgpu_simulation_rate = 555 (cycle/sec)
 
 PATHFINDER TITANX LRR
+gpu_tot_ipc =     677.2551
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 186105
@@ -181,6 +198,7 @@ gpgpu_simulation_rate = 385973 (inst/sec)
 gpgpu_simulation_rate = 569 (cycle/sec)
 
 PATHFINDER TITANX TL
+gpu_tot_ipc =     680.5960
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 186105

@@ -29,6 +29,7 @@ matches = [
     "L2_total_cache_miss_rate",
     "(inst/sec)",
     "(cycle/sec)",
+    "gpu_tot_ipc",
     "gpgpu_simulation_time"
 ]
 fo=open("./output/needlemanwunsch/final_outputs.txt", "w")

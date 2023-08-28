@@ -1,3 +1,4 @@
+gpu_tot_ipc =     300.9426
 L1D_total_cache_accesses = 1487015
 L1D_total_cache_misses = 734002
 L1D_total_cache_miss_rate = 0.4936
