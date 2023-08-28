@@ -1,0 +1,9 @@
+L1D_total_cache_accesses = 1487015
+L1D_total_cache_misses = 872152
+L1D_total_cache_miss_rate = 0.5865
+L2_total_cache_accesses = 850045
+L2_total_cache_misses = 0
+L2_total_cache_miss_rate = 0.0000
+gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 49 sec (109 sec)
+gpgpu_simulation_rate = 282237 (inst/sec)
+gpgpu_simulation_rate = 2344 (cycle/sec)

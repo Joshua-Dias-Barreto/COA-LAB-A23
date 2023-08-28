@@ -1,0 +1,192 @@
+PATHFINDER GTX480 GTO
+L1D_total_cache_accesses = 76733
+L1D_total_cache_misses = 43515
+L1D_total_cache_miss_rate = 0.5671
+L2_total_cache_accesses = 169934
+L2_total_cache_misses = 135120
+L2_total_cache_miss_rate = 0.7951
+gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 39 sec (99 sec)
+gpgpu_simulation_rate = 635491 (inst/sec)
+gpgpu_simulation_rate = 1358 (cycle/sec)
+
+PATHFINDER GTX480 LRR
+L1D_total_cache_accesses = 76733
+L1D_total_cache_misses = 43508
+L1D_total_cache_miss_rate = 0.5670
+L2_total_cache_accesses = 169906
+L2_total_cache_misses = 135123
+L2_total_cache_miss_rate = 0.7953
+gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 34 sec (94 sec)
+gpgpu_simulation_rate = 669293 (inst/sec)
+gpgpu_simulation_rate = 1237 (cycle/sec)
+
+PATHFINDER GTX480 TL
+L1D_total_cache_accesses = 76733
+L1D_total_cache_misses = 43508
+L1D_total_cache_miss_rate = 0.5670
+L2_total_cache_accesses = 169906
+L2_total_cache_misses = 135181
+L2_total_cache_miss_rate = 0.7956
+gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 47 sec (107 sec)
+gpgpu_simulation_rate = 587977 (inst/sec)
+gpgpu_simulation_rate = 1206 (cycle/sec)
+
+PATHFINDER KEPLER_TITAN GTO
+L1D_total_cache_accesses = 0
+L1D_total_cache_misses = 0
+L2_total_cache_accesses = 186581
+L2_total_cache_misses = 133169
+L2_total_cache_miss_rate = 0.7137
+gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 55 sec (115 sec)
+gpgpu_simulation_rate = 547074 (inst/sec)
+gpgpu_simulation_rate = 590 (cycle/sec)
+
+PATHFINDER KEPLER_TITAN LRR
+L1D_total_cache_accesses = 0
+L1D_total_cache_misses = 0
+L2_total_cache_accesses = 186581
+L2_total_cache_misses = 132905
+L2_total_cache_miss_rate = 0.7123
+gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 56 sec (116 sec)
+gpgpu_simulation_rate = 542358 (inst/sec)
+gpgpu_simulation_rate = 618 (cycle/sec)
+
+PATHFINDER KEPLER_TITAN TL
+L1D_total_cache_accesses = 0
+L1D_total_cache_misses = 0
+L2_total_cache_accesses = 186581
+L2_total_cache_misses = 133097
+L2_total_cache_miss_rate = 0.7133
+gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 58 sec (118 sec)
+gpgpu_simulation_rate = 533166 (inst/sec)
+gpgpu_simulation_rate = 601 (cycle/sec)
+
+PATHFINDER QV100 GTO
+L1D_total_cache_accesses = 186105
+L1D_total_cache_misses = 186105
+L1D_total_cache_miss_rate = 1.0000
+L2_total_cache_accesses = 154009
+L2_total_cache_misses = 1898
+L2_total_cache_miss_rate = 0.0123
+gpgpu_simulation_time = 0 days, 0 hrs, 3 min, 54 sec (234 sec)
+gpgpu_simulation_rate = 268861 (inst/sec)
+gpgpu_simulation_rate = 343 (cycle/sec)
+
+PATHFINDER QV100 LRR
+L1D_total_cache_accesses = 186105
+L1D_total_cache_misses = 186105
+L1D_total_cache_miss_rate = 1.0000
+L2_total_cache_accesses = 154009
+L2_total_cache_misses = 1898
+L2_total_cache_miss_rate = 0.0123
+gpgpu_simulation_time = 0 days, 0 hrs, 3 min, 48 sec (228 sec)
+gpgpu_simulation_rate = 275936 (inst/sec)
+gpgpu_simulation_rate = 355 (cycle/sec)
+
+PATHFINDER QV100 TL
+L1D_total_cache_accesses = 186105
+L1D_total_cache_misses = 186105
+L1D_total_cache_miss_rate = 1.0000
+L2_total_cache_accesses = 154009
+L2_total_cache_misses = 1898
+L2_total_cache_miss_rate = 0.0123
+gpgpu_simulation_time = 0 days, 0 hrs, 3 min, 56 sec (236 sec)
+gpgpu_simulation_rate = 266583 (inst/sec)
+gpgpu_simulation_rate = 344 (cycle/sec)
+
+PATHFINDER RTX2060 GTO
+L1D_total_cache_accesses = 186105
+L1D_total_cache_misses = 186105
+L1D_total_cache_miss_rate = 1.0000
+L2_total_cache_accesses = 154009
+L2_total_cache_misses = 126898
+L2_total_cache_miss_rate = 0.8240
+gpgpu_simulation_time = 0 days, 0 hrs, 2 min, 58 sec (178 sec)
+gpgpu_simulation_rate = 353447 (inst/sec)
+gpgpu_simulation_rate = 537 (cycle/sec)
+
+PATHFINDER RTX2060 LRR
+L1D_total_cache_accesses = 186105
+L1D_total_cache_misses = 186105
+L1D_total_cache_miss_rate = 1.0000
+L2_total_cache_accesses = 154009
+L2_total_cache_misses = 126898
+L2_total_cache_miss_rate = 0.8240
+gpgpu_simulation_time = 0 days, 0 hrs, 4 min, 15 sec (255 sec)
+gpgpu_simulation_rate = 246720 (inst/sec)
+gpgpu_simulation_rate = 386 (cycle/sec)
+
+PATHFINDER RTX2060 TL
+L1D_total_cache_accesses = 186105
+L1D_total_cache_misses = 186105
+L1D_total_cache_miss_rate = 1.0000
+L2_total_cache_accesses = 154009
+L2_total_cache_misses = 126898
+L2_total_cache_miss_rate = 0.8240
+gpgpu_simulation_time = 0 days, 0 hrs, 4 min, 14 sec (254 sec)
+gpgpu_simulation_rate = 247691 (inst/sec)
+gpgpu_simulation_rate = 385 (cycle/sec)
+
+PATHFINDER TITANV GTO
+L1D_total_cache_accesses = 186105
+L1D_total_cache_misses = 186105
+L1D_total_cache_miss_rate = 1.0000
+L2_total_cache_accesses = 154009
+L2_total_cache_misses = 43424
+L2_total_cache_miss_rate = 0.2820
+gpgpu_simulation_time = 0 days, 0 hrs, 3 min, 42 sec (222 sec)
+gpgpu_simulation_rate = 283394 (inst/sec)
+gpgpu_simulation_rate = 284 (cycle/sec)
+
+PATHFINDER TITANV LRR
+L1D_total_cache_accesses = 186105
+L1D_total_cache_misses = 186105
+L1D_total_cache_miss_rate = 1.0000
+L2_total_cache_accesses = 154009
+L2_total_cache_misses = 43424
+L2_total_cache_miss_rate = 0.2820
+gpgpu_simulation_time = 0 days, 0 hrs, 3 min, 39 sec (219 sec)
+gpgpu_simulation_rate = 287276 (inst/sec)
+gpgpu_simulation_rate = 291 (cycle/sec)
+
+PATHFINDER TITANV TL
+L1D_total_cache_accesses = 186105
+L1D_total_cache_misses = 186105
+L1D_total_cache_miss_rate = 1.0000
+L2_total_cache_accesses = 154009
+L2_total_cache_misses = 43424
+L2_total_cache_miss_rate = 0.2820
+gpgpu_simulation_time = 0 days, 0 hrs, 3 min, 47 sec (227 sec)
+gpgpu_simulation_rate = 277152 (inst/sec)
+gpgpu_simulation_rate = 280 (cycle/sec)
+
+PATHFINDER TITANX GTO
+L1D_total_cache_accesses = 0
+L1D_total_cache_misses = 0
+L2_total_cache_accesses = 186105
+L2_total_cache_misses = 109990
+L2_total_cache_miss_rate = 0.5910
+gpgpu_simulation_time = 0 days, 0 hrs, 2 min, 43 sec (163 sec)
+gpgpu_simulation_rate = 385973 (inst/sec)
+gpgpu_simulation_rate = 555 (cycle/sec)
+
+PATHFINDER TITANX LRR
+L1D_total_cache_accesses = 0
+L1D_total_cache_misses = 0
+L2_total_cache_accesses = 186105
+L2_total_cache_misses = 110212
+L2_total_cache_miss_rate = 0.5922
+gpgpu_simulation_time = 0 days, 0 hrs, 2 min, 43 sec (163 sec)
+gpgpu_simulation_rate = 385973 (inst/sec)
+gpgpu_simulation_rate = 569 (cycle/sec)
+
+PATHFINDER TITANX TL
+L1D_total_cache_accesses = 0
+L1D_total_cache_misses = 0
+L2_total_cache_accesses = 186105
+L2_total_cache_misses = 109984
+L2_total_cache_miss_rate = 0.5910
+gpgpu_simulation_time = 0 days, 0 hrs, 2 min, 49 sec (169 sec)
+gpgpu_simulation_rate = 372269 (inst/sec)
+gpgpu_simulation_rate = 546 (cycle/sec)
+
