@@ -1,5 +1,4 @@
-NEEDLEMANWUNSCH GTX480 GTO
-gpu_tot_ipc =       3.5050
+GTX480 GTO
 L1D_total_cache_accesses = 16768
 L1D_total_cache_misses = 12546
 L1D_total_cache_miss_rate = 0.7482
@@ -7,11 +6,11 @@ L2_total_cache_accesses = 91486
 L2_total_cache_misses = 281
 L2_total_cache_miss_rate = 0.0031
 gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 48 sec (48 sec)
+gpu_tot_ipc = 3.5050
 gpgpu_simulation_rate = 32477 (inst/sec)
 gpgpu_simulation_rate = 9265 (cycle/sec)
 
-NEEDLEMANWUNSCH GTX480 LRR
-gpu_tot_ipc =       3.5050
+GTX480 LRR
 L1D_total_cache_accesses = 16768
 L1D_total_cache_misses = 12546
 L1D_total_cache_miss_rate = 0.7482
@@ -19,11 +18,11 @@ L2_total_cache_accesses = 91486
 L2_total_cache_misses = 281
 L2_total_cache_miss_rate = 0.0031
 gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 47 sec (47 sec)
+gpu_tot_ipc = 3.5050
 gpgpu_simulation_rate = 33168 (inst/sec)
 gpgpu_simulation_rate = 9463 (cycle/sec)
 
-NEEDLEMANWUNSCH GTX480 TL
-gpu_tot_ipc =       3.4928
+GTX480 TL
 L1D_total_cache_accesses = 16768
 L1D_total_cache_misses = 12546
 L1D_total_cache_miss_rate = 0.7482
@@ -31,11 +30,11 @@ L2_total_cache_accesses = 91486
 L2_total_cache_misses = 281
 L2_total_cache_miss_rate = 0.0031
 gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 49 sec (49 sec)
+gpu_tot_ipc = 3.4928
 gpgpu_simulation_rate = 31814 (inst/sec)
 gpgpu_simulation_rate = 9108 (cycle/sec)
 
-NEEDLEMANWUNSCH KEPLER GTO
-gpu_tot_ipc =       5.7742
+KEPLER GTO
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 46004
@@ -43,10 +42,10 @@ L2_total_cache_misses = 278
 L2_total_cache_miss_rate = 0.0060
 gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 56 sec (56 sec)
 gpgpu_simulation_rate = 27837 (inst/sec)
+gpu_tot_ipc = 5.7742
 gpgpu_simulation_rate = 4821 (cycle/sec)
 
-NEEDLEMANWUNSCH KEPLER LRR
-gpu_tot_ipc =       5.7742
+KEPLER LRR
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 46004
@@ -54,10 +53,10 @@ L2_total_cache_misses = 278
 L2_total_cache_miss_rate = 0.0060
 gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 52 sec (52 sec)
 gpgpu_simulation_rate = 29979 (inst/sec)
+gpu_tot_ipc = 5.7742
 gpgpu_simulation_rate = 5191 (cycle/sec)
 
-NEEDLEMANWUNSCH KEPLER TL
-gpu_tot_ipc =       5.7564
+KEPLER TL
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 46004
@@ -65,10 +64,10 @@ L2_total_cache_misses = 278
 L2_total_cache_miss_rate = 0.0060
 gpgpu_simulation_time = 0 days, 0 hrs, 0 min, 54 sec (54 sec)
 gpgpu_simulation_rate = 28868 (inst/sec)
+gpu_tot_ipc = 5.7564
 gpgpu_simulation_rate = 5015 (cycle/sec)
 
-NEEDLEMANWUNSCH QV100 GTO
-gpu_tot_ipc =       3.6593
+QV100 GTO
 L1D_total_cache_accesses = 28672
 L1D_total_cache_misses = 24832
 L1D_total_cache_miss_rate = 0.8661
@@ -76,11 +75,11 @@ L2_total_cache_accesses = 28416
 L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 3 min, 51 sec (231 sec)
+gpu_tot_ipc = 3.6593
 gpgpu_simulation_rate = 6748 (inst/sec)
 gpgpu_simulation_rate = 1844 (cycle/sec)
 
-NEEDLEMANWUNSCH QV100 LRR
-gpu_tot_ipc =       3.6593
+QV100 LRR
 L1D_total_cache_accesses = 28672
 L1D_total_cache_misses = 24832
 L1D_total_cache_miss_rate = 0.8661
@@ -88,11 +87,11 @@ L2_total_cache_accesses = 28416
 L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 3 min, 40 sec (220 sec)
+gpu_tot_ipc = 3.6593
 gpgpu_simulation_rate = 7085 (inst/sec)
 gpgpu_simulation_rate = 1936 (cycle/sec)
 
-NEEDLEMANWUNSCH QV100 TL
-gpu_tot_ipc =       3.6539
+QV100 TL
 L1D_total_cache_accesses = 28672
 L1D_total_cache_misses = 24832
 L1D_total_cache_miss_rate = 0.8661
@@ -100,11 +99,11 @@ L2_total_cache_accesses = 28416
 L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 3 min, 49 sec (229 sec)
+gpu_tot_ipc = 3.6539
 gpgpu_simulation_rate = 6807 (inst/sec)
 gpgpu_simulation_rate = 1863 (cycle/sec)
 
-NEEDLEMANWUNSCH RTX2060 GTO
-gpu_tot_ipc =       3.6403
+RTX2060 GTO
 L1D_total_cache_accesses = 28672
 L1D_total_cache_misses = 24832
 L1D_total_cache_miss_rate = 0.8661
@@ -112,11 +111,11 @@ L2_total_cache_accesses = 28416
 L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 35 sec (95 sec)
+gpu_tot_ipc = 3.6403
 gpgpu_simulation_rate = 16409 (inst/sec)
 gpgpu_simulation_rate = 4507 (cycle/sec)
 
-NEEDLEMANWUNSCH RTX2060 LRR
-gpu_tot_ipc =       3.6403
+RTX2060 LRR
 L1D_total_cache_accesses = 28672
 L1D_total_cache_misses = 24832
 L1D_total_cache_miss_rate = 0.8661
@@ -124,11 +123,11 @@ L2_total_cache_accesses = 28416
 L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 35 sec (95 sec)
+gpu_tot_ipc = 3.6403
 gpgpu_simulation_rate = 16409 (inst/sec)
 gpgpu_simulation_rate = 4507 (cycle/sec)
 
-NEEDLEMANWUNSCH RTX2060 TL
-gpu_tot_ipc =       3.6458
+RTX2060 TL
 L1D_total_cache_accesses = 28672
 L1D_total_cache_misses = 24832
 L1D_total_cache_miss_rate = 0.8661
@@ -136,11 +135,11 @@ L2_total_cache_accesses = 28416
 L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 42 sec (102 sec)
+gpu_tot_ipc = 3.6458
 gpgpu_simulation_rate = 15283 (inst/sec)
 gpgpu_simulation_rate = 4192 (cycle/sec)
 
-NEEDLEMANWUNSCH TITANV GTO
-gpu_tot_ipc =       5.7437
+TITANV GTO
 L1D_total_cache_accesses = 28672
 L1D_total_cache_misses = 24832
 L1D_total_cache_miss_rate = 0.8661
@@ -148,11 +147,11 @@ L2_total_cache_accesses = 28416
 L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 2 min, 24 sec (144 sec)
+gpu_tot_ipc = 5.7437
 gpgpu_simulation_rate = 10825 (inst/sec)
 gpgpu_simulation_rate = 1884 (cycle/sec)
 
-NEEDLEMANWUNSCH TITANV LRR
-gpu_tot_ipc =       5.7437
+TITANV LRR
 L1D_total_cache_accesses = 28672
 L1D_total_cache_misses = 24832
 L1D_total_cache_miss_rate = 0.8661
@@ -160,11 +159,11 @@ L2_total_cache_accesses = 28416
 L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 2 min, 24 sec (144 sec)
+gpu_tot_ipc = 5.7437
 gpgpu_simulation_rate = 10825 (inst/sec)
 gpgpu_simulation_rate = 1884 (cycle/sec)
 
-NEEDLEMANWUNSCH TITANV TL
-gpu_tot_ipc =       5.7302
+TITANV TL
 L1D_total_cache_accesses = 28672
 L1D_total_cache_misses = 24832
 L1D_total_cache_miss_rate = 0.8661
@@ -172,11 +171,11 @@ L2_total_cache_accesses = 28416
 L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 2 min, 26 sec (146 sec)
+gpu_tot_ipc = 5.7302
 gpgpu_simulation_rate = 10677 (inst/sec)
 gpgpu_simulation_rate = 1863 (cycle/sec)
 
-NEEDLEMANWUNSCH TITANX GTO
-gpu_tot_ipc =       3.8348
+TITANX GTO
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 28672
@@ -184,10 +183,10 @@ L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 24 sec (84 sec)
 gpgpu_simulation_rate = 18558 (inst/sec)
+gpu_tot_ipc = 3.8348
 gpgpu_simulation_rate = 4839 (cycle/sec)
 
-NEEDLEMANWUNSCH TITANX LRR
-gpu_tot_ipc =       3.8348
+TITANX LRR
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 28672
@@ -195,10 +194,10 @@ L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 24 sec (84 sec)
 gpgpu_simulation_rate = 18558 (inst/sec)
+gpu_tot_ipc = 3.8348
 gpgpu_simulation_rate = 4839 (cycle/sec)
 
-NEEDLEMANWUNSCH TITANX TL
-gpu_tot_ipc =       3.8302
+TITANX TL
 L1D_total_cache_accesses = 0
 L1D_total_cache_misses = 0
 L2_total_cache_accesses = 28672
@@ -206,5 +205,6 @@ L2_total_cache_misses = 0
 L2_total_cache_miss_rate = 0.0000
 gpgpu_simulation_time = 0 days, 0 hrs, 1 min, 28 sec (88 sec)
 gpgpu_simulation_rate = 17714 (inst/sec)
+gpu_tot_ipc = 3.8302
 gpgpu_simulation_rate = 4625 (cycle/sec)
 
