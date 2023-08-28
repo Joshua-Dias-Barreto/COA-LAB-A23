@@ -2,19 +2,19 @@ import matplotlib.pyplot as plt
 
 # Example data
 applications = ['BFS', 'Path Finder', 'Needleman Wunsch']
-gpu="RTX2060"
+gpu="GTX480"
 fn=f"{gpu}_l1miss"
-gto_bfs=0.5869
-lrr_bfs=0.5865
-tl_bfs=0.5875
+gto_bfs=0.8225
+lrr_bfs=0.8230
+tl_bfs=0.8209
 
-gto_nw=0.8661
-lrr_nw=0.8661
-tl_nw=0.8661
+gto_nw=0.7482
+lrr_nw=0.7482
+tl_nw=0.7482
 
-gto_pf=1
-lrr_pf=1
-tl_pf=1
+gto_pf=0.5671
+lrr_pf=0.5670
+tl_pf=0.5670
 title=f"L1 Miss Rate Comparison with Different Warp Schedulers for {gpu}"
 
 gto = [
@@ -55,7 +55,7 @@ def add_labels(bars):
     for bar in bars:
         height = bar.get_height()
         plt.text(bar.get_x() + bar.get_width() / 2, height,
-                 f'{height:.2f}', ha='center', va='bottom')
+                 f'{height:.4f}', ha='center', va='bottom')
 
 add_labels(bars1)
 add_labels(bars2)
