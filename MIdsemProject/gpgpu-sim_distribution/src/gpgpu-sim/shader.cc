@@ -1150,7 +1150,7 @@ void scheduler_unit::cycle() {
                              // waiting for pending register writes
   bool issued_inst = false;  // of these we issued one
 
-  order_warps();
+  order_warps(); 
   // m_next_cycle_prioritized_warps.size();
   printf("m_next_cycle_prioritized_warps.size() = %d\n",
          m_next_cycle_prioritized_warps.size());
