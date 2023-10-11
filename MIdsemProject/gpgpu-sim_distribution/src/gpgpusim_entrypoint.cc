@@ -23,7 +23,7 @@
 // SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
 // INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 // CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVgEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
 #include "gpgpusim_entrypoint.h"
@@ -270,11 +270,15 @@ void gpgpu_context::print_simulation_time() {
          the_gpgpusim->g_the_gpu->shader_clock() * 1000 / cycles_per_sec);
   fflush(stdout);
 
-  CustomDebug customDebug("final_output_3.txt");
+  /*
+    All the state counter outputs are written to a file called final_output.txt
+  */
+
+  CustomDebug customDebug("final_output.txt");
   customDebug.putLine("CYCLE " + std::to_string(warp_state_counters[CYCLE]));
-  customDebug.putLine(
-      "CPU CYCLES: " +
-      std::to_string(the_gpgpusim->g_the_gpu->gpu_tot_sim_cycle));
+  // customDebug.putLine(
+  // "CPU CYCLES: " +
+  // std::to_string(the_gpgpusim->g_the_gpu->gpu_tot_sim_cycle));
   unsigned long long total =
       warp_state_counters[ISSUED] + warp_state_counters[XALU] +
       warp_state_counters[XMEM] + warp_state_counters[WAITING] +
@@ -296,8 +300,6 @@ void gpgpu_context::print_simulation_time() {
   customDebug.putLine("OTHER " + std::to_string(warp_state_counters[OTHER]));
   customDebug.putLine(
       "OTHER % " + std::to_string(warp_state_counters[OTHER] * 100.0 / total));
-  // customDebug.putLine("NOT_CHECKED " +
-  // std::to_string(warp_state_counters[NOT_CHECKED]));
   customDebug.putLine("Total = " + std::to_string(total));
 }
 

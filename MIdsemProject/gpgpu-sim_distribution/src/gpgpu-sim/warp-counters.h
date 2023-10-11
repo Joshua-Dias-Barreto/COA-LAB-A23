@@ -1,3 +1,7 @@
+// This header file is used to define the array of counters used to store the
+// number of cycles, waiting, issued, xalu, xmem and other instructions. We have
+// used enum to make it more readable and easy to use.
+
 #ifndef WARP_STATE_COUNTER
 #define WARP_STATE_COUNTER
 

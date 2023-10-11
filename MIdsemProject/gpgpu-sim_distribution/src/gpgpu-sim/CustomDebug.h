@@ -1,3 +1,5 @@
+// This header file is used to create a custom debug file to get the output of
+// counters ans debug statements in a separate txt file.
 #include <fstream>
 #include <string>
 
