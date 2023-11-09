@@ -10,12 +10,16 @@
 
 ## Why KAWS
  In normal scheduling policy, after the arrival of last CTA (Cooperative Thread Array), the other slots of the SM remain idle as there are no more CTAs left to execute. This leads to resource underutilization. To prevent this we have used KAWS scheduling policy, which does progress based scheduling limiting resource underutilisation
+
+ <img width="1000" src="images/coa_2.png">
+ 
 # Warp Sharing
 
 A supplemental concept to KAWS to reduce resource underutilisation is to implement warp sharing. In this policy we utilize the available OCUs from different warp schedulers if the OCU corresponding to that specific warp instruction is unavailable.
 
 <img width="1000" src="images/coa_1.png">
 
+# Data
 
 ## IPC Performance of Different Warp Schedulers Normalised to LRR
 <img width="1000" src="endsem_img/endsem_img1.png">
