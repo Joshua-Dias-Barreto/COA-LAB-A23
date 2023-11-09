@@ -24,17 +24,17 @@ A supplemental concept to KAWS, to reduce stall cycles, is to implement warp sha
 
 # Modifications in Code
 
-## To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, shader.h, abstract_hardware_model.h and scheduler_id.h in the src folder of the gpgpu-sim_distribution.
+To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, shader.h, abstract_hardware_model.h and scheduler_id.h in the src folder of the gpgpu-sim_distribution.
 
 # Evaluation
 
 ## IPC Performance of Different Warp Schedulers (Normalised to LRR)
 
-<img width="1000" src="endsem_img/endsem_img1.png">
+<img width="1000" src="EndSem_img/endsem_img1.png">
 
-# With and Without Warp Sharing (Normalised to LRR without Warp Sharing)
+## With and Without Warp Sharing (Normalised to LRR without Warp Sharing)
 
-## KAWS
+### KAWS
 
 |                                              | PF     | HS     | 3DCV   | 3MM    |
 | -------------------------------------------- | ------ | ------ | ------ | ------ |
@@ -42,7 +42,7 @@ A supplemental concept to KAWS, to reduce stall cycles, is to implement warp sha
 | **Without Warp Sharing**                     | 105.89 | 113.08 | 108.10 | 101.34 |
 | **Performance Increase due to Warp Sharing** | 0.23   | 0.19   | -0.08  | 1.53   |
 
-## GTO
+### GTO
 
 |                                              | PF     | HS     | 3DCV   | 3MM   |
 | -------------------------------------------- | ------ | ------ | ------ | ----- |
@@ -50,7 +50,7 @@ A supplemental concept to KAWS, to reduce stall cycles, is to implement warp sha
 | **Without Warp Sharing**                     | 104.48 | 110.75 | 105.19 | 96.80 |
 | **Performance Increase due to Warp Sharing** | 0.08   | 0.19   | -0.08  | 1.52  |
 
-## LRR
+### LRR
 
 |                                              | PF     | HS     | 3DCV   | 3MM    |
 | -------------------------------------------- | ------ | ------ | ------ | ------ |
