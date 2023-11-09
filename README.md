@@ -3,7 +3,7 @@
 - Ishan Mardani (21CS01023)
 - Akshit Dudeja (21CS01026)
 - Joshua Dias Barreto (21CS01075)
-- Vishnu Tirth Bysani (21CS01076)
+- Vishnu Tirth Bysani (21CS01077)
 - Tushar Joshi (21CS01078)
 
 ## IPC Performance of Different Warp Schedulers Normalised to LRR
