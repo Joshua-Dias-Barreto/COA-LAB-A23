@@ -28,4 +28,4 @@
 |-------|------|------|-------|------|
 | **With Warp Sharing** | 100.21  | 100.53  | 100.13  | 101.56  |
 | **Without Warp Sharing** | 100 | 100 | 100 | 100 |
-| **Performance Increment with Warp Sharing** | 0.21 | 0.53 | 0.13 | 0.156 |
+| **Performance Increment with Warp Sharing** | 0.21 | 0.53 | 0.13 | 1.56 |
