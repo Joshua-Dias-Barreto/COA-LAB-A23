@@ -1,5 +1,7 @@
 # COA End Semester Project - Group 10
+
 ## Group Members
+
 - Ishan Mardani (21CS01023)
 - Akshit Dudeja (21CS01026)
 - Joshua Dias Barreto (21CS01075)
@@ -8,42 +10,50 @@
 
 # KAWS
 
-## Why KAWS
- In normal scheduling policy, after the arrival of last CTA (Cooperative Thread Array), the other slots of the SM remain idle as there are no more CTAs left to execute. This leads to resource underutilization. To prevent this we have used KAWS scheduling policy, which does progress based scheduling limiting resource underutilisation
+## Kernel Aware Warp Scheduling
+
+In normal scheduling policy, after the maximum number of CTAs (Cooperative Thread Arrays) have been issued to a SM, if a CTA finishes execution, there are no more CTAs left to be issued. This leads to resource underutilization. To prevent this we will use KAWS scheduling policy, which will do progress based scheduling after the last CTA has been issued to give more priority to processes with less progress or number instructions executed. This will help in finishing the execution of the last CTA faster and therfore, limit resource underutilisation.
 
  <img width="1000" src="images/coa_2.png">
  
-# Warp Sharing
+# Warp Sharing Mechanism
 
-A supplemental concept to KAWS to reduce resource underutilisation is to implement warp sharing. In this policy we utilize the available OCUs from different warp schedulers if the OCU corresponding to that specific warp instruction is unavailable.
+A supplemental concept to KAWS, to reduce stall cycles, is to implement warp sharing. In this policy we utilize the available OCUs (Operand Collector Units) from all warp schedulers if the OCU corresponding to that specific warp instruction is not available in the scheduler that the process is currently allocated to.
 
 <img width="1000" src="images/coa_1.png">
 
-# Data
+# Modifications in Code
 
-## IPC Performance of Different Warp Schedulers Normalised to LRR
+## To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, shader.h, abstract_hardware_model.h and scheduler_id.h in the src folder of the gpgpu-sim_distribution.
+
+# Evaluation
+
+## IPC Performance of Different Warp Schedulers (Normalised to LRR)
+
 <img width="1000" src="endsem_img/endsem_img1.png">
 
-## KAWS with and without Warp Sharing (Normalised to LRR without Warp Sharing)
-|       | PF    | HS    | 3DCV     | 3MM    |
-|-------|------|------|-------|------|
-| **With Warp Sharing** | 106.12  | 113.27  | 108.02  | 102.87  |
-| **Without Warp Sharing** | 105.89 | 113.08 | 108.10 | 101.34 |
-| **Performance Increment with Warp Sharing** | 0.23 | 0.19 | -0.08 | 1.53 |
+# With and Without Warp Sharing (Normalised to LRR without Warp Sharing)
 
-## GTO with and without Warp Sharing (Normalised to LRR without Warp Sharing)
-|       | PF    | HS    | 3DCV     | 3MM    |
-|-------|------|------|-------|------|
-| **With Warp Sharing** | 104.56  | 110.94  | 105.11  | 98.32  |
-| **Without Warp Sharing** | 104.48 | 110.75 | 105.19 | 96.80 |
-| **Performance Increment with Warp Sharing** | 0.08 | 0.19 | -0.08 | 1.52 |
+## KAWS
 
-## LRR with and without Warp Sharing (Normalised to LRR without Warp Sharing)
-|       | PF    | HS    | 3DCV     | 3MM    |
-|-------|------|------|-------|------|
-| **With Warp Sharing** | 100.21  | 100.53  | 100.13  | 101.56  |
-| **Without Warp Sharing** | 100 | 100 | 100 | 100 |
-| **Performance Increment with Warp Sharing** | 0.21 | 0.53 | 0.13 | 1.56 |
+|                                              | PF     | HS     | 3DCV   | 3MM    |
+| -------------------------------------------- | ------ | ------ | ------ | ------ |
+| **With Warp Sharing**                        | 106.12 | 113.27 | 108.02 | 102.87 |
+| **Without Warp Sharing**                     | 105.89 | 113.08 | 108.10 | 101.34 |
+| **Performance Increase due to Warp Sharing** | 0.23   | 0.19   | -0.08  | 1.53   |
 
+## GTO
 
+|                                              | PF     | HS     | 3DCV   | 3MM   |
+| -------------------------------------------- | ------ | ------ | ------ | ----- |
+| **With Warp Sharing**                        | 104.56 | 110.94 | 105.11 | 98.32 |
+| **Without Warp Sharing**                     | 104.48 | 110.75 | 105.19 | 96.80 |
+| **Performance Increase due to Warp Sharing** | 0.08   | 0.19   | -0.08  | 1.52  |
 
+## LRR
+
+|                                              | PF     | HS     | 3DCV   | 3MM    |
+| -------------------------------------------- | ------ | ------ | ------ | ------ |
+| **With Warp Sharing**                        | 100.21 | 100.53 | 100.13 | 101.56 |
+| **Without Warp Sharing**                     | 100    | 100    | 100    | 100    |
+| **Performance Increase due to Warp Sharing** | 0.21   | 0.53   | 0.13   | 1.56   |

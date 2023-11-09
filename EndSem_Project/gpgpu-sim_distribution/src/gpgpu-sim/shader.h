@@ -118,6 +118,10 @@ class shd_warp_t {
     m_done_exit = true;
     m_last_fetch = 0;
     m_next = 0;
+
+    // **************************************KAWS-Change*******************************************
+    // Initialize instruction issue count to 0.
+
     inst_issued_count = 0;
     // Jin: cdp support
     m_cdp_latency = 0;
@@ -285,6 +289,10 @@ class shd_warp_t {
   unsigned int m_cdp_latency;
   bool m_cdp_dummy;
 
+  // **************************************KAWS-Change*******************************************
+  // Instruction issue count to track the number of instructions issued from a
+  // warp or to measure the progress of the warp.
+
   int inst_issued_count;
 };
 
@@ -324,6 +332,12 @@ enum concrete_scheduler {
   CONCRETE_SCHEDULER_TWO_LEVEL_ACTIVE,
   CONCRETE_SCHEDULER_WARP_LIMITING,
   CONCRETE_SCHEDULER_OLDEST_FIRST,
+
+  // **************************************KAWS-Change*******************************************
+  // Added new concrete schedulers to the enum which will be used in the ternary
+  // conditions and switch case while reading scheduler_type from the config
+  // file in shader.cc.
+
   CONCRETE_SCHEDULER_KAWS,
   CONCRETE_SCHEDULER_KAWS_WITH_WS,
   CONCRETE_SCHEDULER_GTO_WITH_WS,
@@ -357,13 +371,25 @@ class scheduler_unit {  // this can be copied freely, so can be used in std
         m_spec_cores_out(spec_cores_out),
         m_mem_out(mem_out),
         m_id(id) {
+    // **************************************KAWS-Change*******************************************
+
+    // Defined scheduler_type to denote the type of scheduler
+    // (KAWS,GTO,LRR,etc.).
     this->scheduler_type = scheduler_type;
+
+    // Defined isWarpSharing to denote whether the scheduler has warp sharing
+    // enabled or not.
     this->isWarpSharing = isWarpSharing;
   }
 
   int getMaxCta();
-  bool getLastCtaIssued();
   int getIssuedCtaCount();
+
+  // **************************************KAWS-Change*******************************************
+  // Added new boolean function to return if the last CTA is issued or not by
+  // the scheduler.
+  bool getLastCtaIssued();
+
   virtual ~scheduler_unit() {}
   virtual void add_supervised_warp_id(int i) {
     m_supervised_warps.push_back(&warp(i));
@@ -398,6 +424,11 @@ class scheduler_unit {  // this can be copied freely, so can be used in std
     NUM_ORDERING,
   };
   template <typename U>
+
+  // **************************************KAWS-Change*******************************************
+  // Added sort_warps_by_progress function to sort the warps based on the warp
+  // progress for KAWS.
+
   void order_by_priority(
       std::vector<U> &result_list, const typename std::vector<U> &input_list,
       const typename std::vector<U>::const_iterator &last_issued_from_input,
@@ -1955,17 +1986,7 @@ class shader_core_ctx : public core_t {
   }
 
   void update_cta_instruction_count(int cta_id) {
-    if (cta_id != -1) {
-      cta_instruction_count[cta_id]++;
-      // printf("!@#$UPDATED_CTA %d of Shader %d : ", cta_id, m_sid);
-      // for (int i = 0; i < m_config->max_cta_per_core; i++) {
-      //   printf("%d ", cta_instruction_count[i]);
-      // }
-
-      // **** Add custom degub here ****
-
-      printf("\n");
-    }
+    if (cta_id != -1) cta_instruction_count[cta_id]++;
   }
 
   kernel_info_t *get_kernel() { return m_kernel; }
@@ -2166,7 +2187,10 @@ class shader_core_ctx : public core_t {
   }
   bool check_if_non_released_reduction_barrier(warp_inst_t &inst);
 
-  bool last_cta_fetched;  // Flag to indicate if the last CTA has been fetched
+  // **************************************KAWS-Change*******************************************
+  // Flag to indicate if the last CTA has been fetched
+
+  bool last_cta_fetched;
 
  protected:
   unsigned inactive_lanes_accesses_sfu(unsigned active_count, double latency) {

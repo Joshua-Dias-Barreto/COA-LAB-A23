@@ -172,6 +172,12 @@ void shader_core_ctx::create_schedulers() {
 
   // scedulers
   // must currently occur after all inputs have been initialized.
+
+  // **************************************KAWS-Changes************************************
+  // Added extra ternary operators to check for the presence of KAWS in the
+  // config file. Also the suffix "_ws" means that the scheduler is using the
+  // warp sharing.
+
   std::string sched_config = m_config->gpgpu_scheduler_string;
   const concrete_scheduler scheduler =
       sched_config.find("kaws_ws") != std::string::npos
@@ -193,6 +199,13 @@ void shader_core_ctx::create_schedulers() {
 
           : NUM_CONCRETE_SCHEDULERS;
   assert(scheduler != NUM_CONCRETE_SCHEDULERS);
+
+  // **************************************KAWS-Changes************************************
+  // Added extra switch cases to check for the presence of the newly added
+  // schedulers. Also, when we are pushing back the schedulers, we are also
+  // adding a extra boolean parameter at the end which denotes whether we have
+  // to include warp sharing or not. This parameter was also added in the
+  // function definition in the shader.h file.
 
   for (unsigned i = 0; i < m_config->gpgpu_num_sched_per_core; i++) {
     switch (scheduler) {
@@ -528,6 +541,12 @@ void shader_core_ctx::reinit(unsigned start_thread, unsigned end_thread,
     m_occupied_hwtid.reset();
     m_occupied_cta_to_hwtid.clear();
     m_active_warps = 0;
+
+    // **************************************KAWS-Changes************************************
+    // Boolean Variable to check if the last CTA is fetched yet. It is initially
+    // set to false. This parameter is defined in the defintion of the
+    // shader_core_ctx class in the shader.h file.
+
     last_cta_fetched = false;
   }
   for (unsigned i = start_thread; i < end_thread; i++) {
@@ -1142,6 +1161,15 @@ void scheduler_unit::order_lrr(
  * the priority_function would compare the age of the two warps.
  */
 template <class T>
+
+// **************************************KAWS-Changes************************************
+// We addded a new argument to the order_by_priority function progress_func
+// similar to priority_func. The argument ordering is used to determine how the
+// warps will be ordered. ORDERING_GREEDY_THEN_PRIORITY_FUNC -> GTO
+// ORDERED_PRIORITY_FUNC_ONLY ->  Oldest first
+// ORDERING_OLDEST_THEN_PROGRESS -> GTO before the last CTA is issued, then
+// KAWS.
+
 void scheduler_unit::order_by_priority(
     std::vector<T> &result_list, const typename std::vector<T> &input_list,
     const typename std::vector<T>::const_iterator &last_issued_from_input,
@@ -1169,21 +1197,19 @@ void scheduler_unit::order_by_priority(
       result_list.push_back(*iter);
     }
   } else if (ORDERING_OLDEST_THEN_PROGRESS == ordering) {
-    // std::cout << "Temp: ";
-    // for (typename std::vector<T>::iterator iter = temp.begin();
-    //      iter != temp.end(); ++iter) {
-    //   std::cout << (*iter) << ' ';
-    // }
-    // std::cout << std::endl;
-
-    // if (getMaxCta() == getIssuedCtaCount()) {
     if (getLastCtaIssued()) {
+      // **************************************KAWS-Changes************************************
+      // *****************************************KAWS*****************************************
+
       std::sort(temp.begin(), temp.end(), progress_func);
       typename std::vector<T>::iterator iter = temp.begin();
       for (unsigned count = 0; count < num_warps_to_add; ++count, ++iter) {
         result_list.push_back(*iter);
       }
     } else {
+      // **************************************KAWS-Changes************************************
+      // *****************************************GTO******************************************
+
       T greedy_value = *last_issued_from_input;
       result_list.push_back(greedy_value);
 
@@ -1275,6 +1301,10 @@ int scheduler_unit::cycle() {
         } else {
           valid_inst = true;
 
+          // **************************************KAWS-Changes************************************
+          // Defined a new enum in scheduler_id.h to identify the scheduler that
+          // has free unit for the current instruction.
+
           int *scheduler_id[END_OF_SCHEDULER_ID];
           for (int i = 0; i < END_OF_SCHEDULER_ID; i++) {
             scheduler_id[i] = new int;
@@ -1292,16 +1322,35 @@ int scheduler_unit::cycle() {
 
             assert(warp(warp_id).inst_in_pipeline());
 
+            // **************************************KAWS-Changes************************************
+            // Boolean Variable hasWarpSharing to denote whether warp sharing is
+            // enabled. The scheduler_unit has been provided with a new variable
+            // isWarpSharing in the shader.h file.
+
             bool hasWarpSharing = this->isWarpSharing;
 
             if ((pI->op == LOAD_OP) || (pI->op == STORE_OP) ||
                 (pI->op == MEMORY_BARRIER_OP) ||
                 (pI->op == TENSOR_CORE_LOAD_OP) ||
                 (pI->op == TENSOR_CORE_STORE_OP)) {
+              // **************************************KAWS-Changes************************************
+              // In has_free we added hasWarpSharing to denote whether warp
+              // sharing is enabled. In warp sharing, we check all the
+              // schedulers for availability. Therefore, we pass an integer
+              // pointer (scheduler_id[i]) to the has_free function. This
+              // integer pointer is used to store the id of the scheduler that
+              // has free unit for the current instruction.
+
               if (m_mem_out->has_free(m_shader->m_config->sub_core_model, m_id,
                                       scheduler_id[OCU_MEM], hasWarpSharing) &&
                   (!diff_exec_units ||
                    previous_issued_inst_exec_type != exec_unit_type_t::MEM)) {
+                // **************************************KAWS-Changes************************************
+                // Based on the value of the hasWarpSharing variable, we either
+                // use the scheduler_id[i] or m_id. If warp sharing is enabled,
+                // then we use the scheduler_id[i] to store the id of the free
+                // scheduler. Otherwise, we use m_id.
+
                 m_shader->issue_warp(
                     *m_mem_out, pI, active_mask, warp_id,
                     !hasWarpSharing ? m_id : *scheduler_id[OCU_MEM]);
@@ -1311,6 +1360,13 @@ int scheduler_unit::cycle() {
                 previous_issued_inst_exec_type = exec_unit_type_t::MEM;
               }
             } else {
+              // **************************************KAWS-Changes************************************
+              // Similarly, we pass the integer pointer (scheduler_id[i]) to all
+              // the has_free correspoding to SP, SFU, TENSOR_CORE, DP, INT ans
+              // SPEC units. Also, their respective issue_warp functions are
+              // called with the integer pointer (scheduler_id[i]) as an
+              // argument.
+
               bool sp_pipe_avail =
                   (m_shader->m_config->gpgpu_num_sp_units > 0) &&
                   m_sp_out->has_free(m_shader->m_config->sub_core_model, m_id,
@@ -1381,6 +1437,7 @@ int scheduler_unit::cycle() {
                 }
 
                 if (execute_on_SP) {
+                  // **************************************KAWS-Changes************************************
                   m_shader->issue_warp(
                       *m_sp_out, pI, active_mask, warp_id,
                       !hasWarpSharing ? m_id : *scheduler_id[OCU_SP]);
@@ -1389,6 +1446,7 @@ int scheduler_unit::cycle() {
                   warp_inst_issued = true;
                   previous_issued_inst_exec_type = exec_unit_type_t::SP;
                 } else if (execute_on_INT) {
+                  // **************************************KAWS-Changes************************************
                   m_shader->issue_warp(
                       *m_int_out, pI, active_mask, warp_id,
                       !hasWarpSharing ? m_id : *scheduler_id[OCU_INT]);
@@ -1402,6 +1460,7 @@ int scheduler_unit::cycle() {
                          !(diff_exec_units && previous_issued_inst_exec_type ==
                                                   exec_unit_type_t::DP)) {
                 if (dp_pipe_avail) {
+                  // **************************************KAWS-Changes************************************
                   m_shader->issue_warp(
                       *m_dp_out, pI, active_mask, warp_id,
                       !hasWarpSharing ? m_id : *scheduler_id[OCU_DP]);
@@ -1418,6 +1477,7 @@ int scheduler_unit::cycle() {
                        !(diff_exec_units && previous_issued_inst_exec_type ==
                                                 exec_unit_type_t::SFU)) {
                 if (sfu_pipe_avail) {
+                  // **************************************KAWS-Changes************************************
                   m_shader->issue_warp(
                       *m_sfu_out, pI, active_mask, warp_id,
                       !hasWarpSharing ? m_id : *scheduler_id[OCU_SFU]);
@@ -1430,6 +1490,7 @@ int scheduler_unit::cycle() {
                          !(diff_exec_units && previous_issued_inst_exec_type ==
                                                   exec_unit_type_t::TENSOR)) {
                 if (tensor_core_pipe_avail) {
+                  // **************************************KAWS-Changes************************************
                   m_shader->issue_warp(
                       *m_tensor_core_out, pI, active_mask, warp_id,
                       !hasWarpSharing ? m_id : *scheduler_id[OCU_TENSOR_CORE]);
@@ -1445,6 +1506,7 @@ int scheduler_unit::cycle() {
                 unsigned spec_id = pI->op - SPEC_UNIT_START_ID;
                 assert(spec_id < m_shader->m_config->m_specialized_unit.size());
                 register_set *spec_reg_set = m_spec_cores_out[spec_id];
+                // **************************************KAWS-Changes************************************
                 bool spec_pipe_avail =
                     (m_shader->m_config->m_specialized_unit[spec_id].num_units >
                      0) &&
@@ -1453,6 +1515,7 @@ int scheduler_unit::cycle() {
                                            hasWarpSharing);
 
                 if (spec_pipe_avail) {
+                  // **************************************KAWS-Changes************************************
                   m_shader->issue_warp(
                       *spec_reg_set, pI, active_mask, warp_id,
                       !hasWarpSharing ? m_id : *scheduler_id[OCU_SPEC]);
@@ -1502,6 +1565,13 @@ int scheduler_unit::cycle() {
            supervised_iter != m_supervised_warps.end(); ++supervised_iter) {
         if (*iter == *supervised_iter) {
           m_last_supervised_issued = supervised_iter;
+
+          // **************************************KAWS-Changes************************************
+          // inst_issued_count is defined in the class shd_warp_t in shader.h
+          // file. It is used to keep track of the number of instructions
+          // issued. This variable is used to implement the progress based
+          // scheduling.
+
           (*m_last_supervised_issued)->inst_issued_count++;
         }
       }
@@ -1552,6 +1622,10 @@ bool scheduler_unit::sort_warps_by_oldest_dynamic_id(shd_warp_t *lhs,
   }
 }
 
+// **************************************KAWS-Changes************************************
+// We added a new comparator function sort_warps_by_progress to sort the warps
+// based on their progress.
+
 bool scheduler_unit::sort_warps_by_progress(shd_warp_t *lhs, shd_warp_t *rhs) {
   if (rhs && lhs) {
     return lhs->inst_issued_count < rhs->inst_issued_count;
@@ -1559,32 +1633,6 @@ bool scheduler_unit::sort_warps_by_progress(shd_warp_t *lhs, shd_warp_t *rhs) {
     return lhs < rhs;
   }
 }
-// bool scheduler_unit::sort_warps_by_progress(shd_warp_t *lhs, shd_warp_t *rhs)
-// {
-//   if (rhs && lhs) {
-//     if (lhs->done_exit() || lhs->waiting()) {
-//       return false;
-//     } else if (rhs->done_exit() || rhs->waiting()) {
-//       return true;
-//     } else {
-//       int lId = lhs->get_cta_id();
-//       int rId = rhs->get_cta_id();
-
-//       shader_core_ctx *shader = lhs->get_shader();
-//       if (!shader) shader = rhs->get_shader();
-
-//       // printf("lId: %d, rId: %d\n", lId, rId);
-
-//       int lProgress = shader->cta_instruction_count[lId];
-//       int rProgress = shader->cta_instruction_count[rId];
-
-//       // return lhs->get_dynamic_warp_id() < rhs->get_dynamic_warp_id();
-//       return lProgress < rProgress;
-//     }
-//   } else {
-//     return lhs < rhs;
-//   }
-// }
 
 void lrr_scheduler::order_warps() {
   order_lrr(m_next_cycle_prioritized_warps, m_supervised_warps,
@@ -1606,6 +1654,13 @@ void oldest_scheduler::order_warps() {
                     scheduler_unit::sort_warps_by_oldest_dynamic_id,
                     scheduler_unit::sort_warps_by_progress);
 }
+
+// **************************************KAWS-Changes************************************
+// We added a new scheduler for KAWS. This scheduler is a combination of
+// GTO and Progress based scheduling. It implements the order_warps function.
+// The order_warps function is used to order the warps in the next_cycle.
+// ORDERING_OLDEST_THEN_PROGRESS was added to the enum OrderingType in the
+// shader.h file to denote KAWS to the order_by_priority function.
 
 void kaws_scheduler::order_warps() {
   order_by_priority(m_next_cycle_prioritized_warps, m_supervised_warps,
@@ -4373,6 +4428,12 @@ unsigned simt_core_cluster::issue_block2core() {
         //            m_config->max_cta(*kernel)) ) {
         m_core[core]->can_issue_1block(*kernel)) {
       m_core[core]->issue_block2core(*kernel);
+
+      // **************************************KAWS-Change*******************************************
+      // When there is an issue from block to an core, we will check if no more
+      // CTAs are left. If there is no more CTAs left, we will set the
+      // last_cta_fetched to true.
+
       if (kernel->no_more_ctas_to_run()) {
         m_core[core]->last_cta_fetched = true;
       }
