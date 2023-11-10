@@ -15,7 +15,7 @@
 In normal scheduling policy, after the maximum number of CTAs (Cooperative Thread Arrays) have been issued to a SM, if a CTA finishes execution, there are no more CTAs left to be issued. This leads to resource underutilization. To prevent this we will use KAWS scheduling policy, which will do progress based scheduling after the last CTA has been issued to give more priority to processes with less progress or number instructions executed. This will help in finishing the execution of the last CTA faster and therfore, limit resource underutilisation.
 
  <img width="1000" src="images/coa_2.png">
- 
+
 # Warp Sharing Mechanism
 
 A supplemental concept to KAWS, to reduce stall cycles, is to implement warp sharing. In this policy we utilize the available OCUs (Operand Collector Units) from all warp schedulers if the OCU corresponding to that specific warp instruction is not available in the scheduler that the process is currently allocated to.
@@ -23,9 +23,11 @@ A supplemental concept to KAWS, to reduce stall cycles, is to implement warp sha
 <img width="1000" src="images/coa_1.png">
 
 <br>
+
 # Modifications in Code
 
 To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, shader.h, abstract_hardware_model.h and scheduler_id.h in the src folder of the gpgpu-sim_distribution.
+
 <br>
 <br>
 
