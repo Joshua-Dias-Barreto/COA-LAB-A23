@@ -85,4 +85,4 @@ This is found in the output log under the name gpu_tot_sim_cycles
 
 # Note
 
-Although our values of the evaluation metrics(IPC, Stall Cycles) do not completely match with that of the research paper, the values have a similar trend as given in the research paper. This is becuase we scaled down the inputs to the applications/benchmarks so that they execute faster. Hence, we can see a similar trend in our data if not the exact same values.
+Although our values of the evaluation metrics(IPC and Stall Cycles) do not completely match with that of the research paper, the values have a similar trend as given in the research paper. This is because we scaled down the inputs to the applications/benchmarks so that they execute faster. Hence, we can see a similar trend in our data if not the exact same values.
