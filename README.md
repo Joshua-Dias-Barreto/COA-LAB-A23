@@ -73,7 +73,13 @@ To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, 
 | **Without Warp Sharing**                   | 100    | 100    | 100    | 100    | 100    | 100   | 100    |
 | **Performance Change due to Warp Sharing** | 0.21   | 0.53   | 0.13   | 1.56   | 0.21   | -0.44 | 0.09   |
 
-## Total Simulation Cycles (tot_gpu_sim_cycles) (Normalised to LRR without Warp Sharing)
+<br>
+
+# Stall Cycles
+
+## Total Simulation Cycles (tot_gpu_sim_cycles)
+
+## (Normalised to LRR without Warp Sharing)
 
 <img width="1000" src="EndSem_img/gpu_tot_sim_cycle.png">
 
