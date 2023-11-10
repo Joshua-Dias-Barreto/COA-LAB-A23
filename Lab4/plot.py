@@ -72,7 +72,7 @@ plt.legend()
 # Show the plot
 plt.grid(True)
 plt.tight_layout()
-# plt.show()
+plt.show()
 
 # save the plot as a file
-plt.savefig(f'./Lab4/graphs/L1Miss/{fn}.png', bbox_inches='tight')
+# plt.savefig(f'./Lab4/graphs/L1Miss/{fn}.png', bbox_inches='tight')

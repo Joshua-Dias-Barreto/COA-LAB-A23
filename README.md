@@ -43,7 +43,7 @@ To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, 
 | **KAWS**    | 717.30 | 2612.2 | 270.88 | 211.36 | 102.71 | 159.55 | 11.63 |
 | **KAWS+WS** | 718.95 | 2616.7 | 271.08 | 214.55 | 103.33 | 160.33 | 11.65 |
 
-## IPC Performance of Different Warp Schedulers (Normalised to LRR)
+## IPC Performance of Different Warp Schedulers (Normalised to LRR without Warp Sharing)
 
 <img width="1000" src="EndSem_img/IPC.png">
 
@@ -72,3 +72,9 @@ To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, 
 | **With Warp Sharing**                      | 100.21 | 100.53 | 100.13 | 101.56 | 100.21 | 99.56 | 100.09 |
 | **Without Warp Sharing**                   | 100    | 100    | 100    | 100    | 100    | 100   | 100    |
 | **Performance Change due to Warp Sharing** | 0.21   | 0.53   | 0.13   | 1.56   | 0.21   | -0.44 | 0.09   |
+
+## Total Simulation Cycles (tot_gpu_sim_cycles) (Normalised to LRR without Warp Sharing)
+
+<img width="1000" src="EndSem_img/gpu_tot_sim_cycle.png">
+
+Although our values of the evaluation metrics(IPC, Stall Cycles) do not completely match with that of the research paper, the values have a similar trend as given in the research paper. This is becuase we scaled down the inputs to the applications/benchmarks so that they execute faster. Hence, we can see a similar trend in our data if not the exact same values.

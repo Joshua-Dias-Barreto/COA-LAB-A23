@@ -14,4 +14,4 @@ plt.xlim([-0.5, 4])
 
 plt.yticks(np.arange(0, 101, 10))
 plt.show()
-plt.savefig("/content/warps_state_breakdown.png")
+# plt.savefig("/content/warps_state_breakdown.png")
