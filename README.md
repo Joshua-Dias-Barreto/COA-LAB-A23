@@ -32,32 +32,43 @@ To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, 
 
 # Evaluation
 
+# IPC (Instruction/Cycle)
+
+|             | PF     | HS     | 3DCV   | 3MM    | BFS    | NN     | NW    |
+| ----------- | ------ | ------ | ------ | ------ | ------ | ------ | ----- |
+| **LRR**     | 677.49 | 2310.1 | 250.77 | 208.57 | 98.82  | 159.97 | 11.57 |
+| **LRR+WS**  | 678.91 | 2322.3 | 251.09 | 211.82 | 99.02  | 159.27 | 11.58 |
+| **GTO**     | 707.84 | 2558.4 | 263.58 | 201.89 | 101.51 | 158.96 | 11.59 |
+| **GTO+WS**  | 708.92 | 2562.8 | 263.78 | 205.06 | 101.87 | 158.03 | 11.61 |
+| **KAWS**    | 717.30 | 2612.2 | 270.88 | 211.36 | 102.71 | 159.55 | 11.63 |
+| **KAWS+WS** | 718.95 | 2616.7 | 271.08 | 214.55 | 103.33 | 160.33 | 11.65 |
+
 ## IPC Performance of Different Warp Schedulers (Normalised to LRR)
 
-<img width="1000" src="EndSem_img/endsem_img1_fs_12.png">
+<img width="1000" src="EndSem_img/IPC.png">
 
 ## With and Without Warp Sharing (Normalised to LRR without Warp Sharing)
 
 ### KAWS
 
-|                                              | PF     | HS     | 3DCV   | 3MM    |
-| -------------------------------------------- | ------ | ------ | ------ | ------ |
-| **With Warp Sharing**                        | 106.12 | 113.27 | 108.02 | 102.87 |
-| **Without Warp Sharing**                     | 105.89 | 113.08 | 108.10 | 101.34 |
-| **Performance Increase due to Warp Sharing** | 0.23   | 0.19   | -0.08  | 1.53   |
+|                                              | PF     | HS     | 3DCV   | 3MM    | BFS    | NN     | NW     |
+| -------------------------------------------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| **With Warp Sharing**                        | 106.12 | 113.27 | 108.10 | 102.87 | 104.57 | 99.74  | 100.69 |
+| **Without Warp Sharing**                     | 105.89 | 113.08 | 108.02 | 101.34 | 103.93 | 100.23 | 100.54 |
+| **Performance Increase due to Warp Sharing** | 0.23   | 0.19   | 0.08   | 1.53   | 0.64   | -0.49  | 0.15   |
 
 ### GTO
 
-|                                              | PF     | HS     | 3DCV   | 3MM   |
-| -------------------------------------------- | ------ | ------ | ------ | ----- |
-| **With Warp Sharing**                        | 104.56 | 110.94 | 105.11 | 98.32 |
-| **Without Warp Sharing**                     | 104.48 | 110.75 | 105.19 | 96.80 |
-| **Performance Increase due to Warp Sharing** | 0.08   | 0.19   | -0.08  | 1.52  |
+|                                              | PF     | HS     | 3DCV   | 3MM   | BFS    | NN    | NW     |
+| -------------------------------------------- | ------ | ------ | ------ | ----- | ------ | ----- | ------ |
+| **With Warp Sharing**                        | 104.64 | 110.94 | 105.19 | 98.32 | 103.09 | 98.79 | 100.34 |
+| **Without Warp Sharing**                     | 104.48 | 110.75 | 105.11 | 96.80 | 102.73 | 99.37 | 100.17 |
+| **Performance Increase due to Warp Sharing** | 0.16   | 0.19   | 0.08   | 1.52  | 0.36   | -0.58 | 0.17   |
 
 ### LRR
 
-|                                              | PF     | HS     | 3DCV   | 3MM    |
-| -------------------------------------------- | ------ | ------ | ------ | ------ |
-| **With Warp Sharing**                        | 100.21 | 100.53 | 100.13 | 101.56 |
-| **Without Warp Sharing**                     | 100    | 100    | 100    | 100    |
-| **Performance Increase due to Warp Sharing** | 0.21   | 0.53   | 0.13   | 1.56   |
+|                                              | PF     | HS     | 3DCV   | 3MM    | BFS    | NN    | NW     |
+| -------------------------------------------- | ------ | ------ | ------ | ------ | ------ | ----- | ------ |
+| **With Warp Sharing**                        | 100.21 | 100.53 | 100.13 | 101.56 | 100.21 | 99.56 | 100.09 |
+| **Without Warp Sharing**                     | 100    | 100    | 100    | 100    | 100    | 100   | 100    |
+| **Performance Increase due to Warp Sharing** | 0.21   | 0.53   | 0.13   | 1.56   | 0.21   | -0.44 | 0.09   |
