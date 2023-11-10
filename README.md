@@ -29,7 +29,6 @@ A supplemental concept to KAWS, to reduce stall cycles, is to implement warp sha
 To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, shader.h, abstract_hardware_model.h and scheduler_id.h in the src folder of the gpgpu-sim_distribution.
 
 <br>
-<br>
 
 # Evaluation
 
