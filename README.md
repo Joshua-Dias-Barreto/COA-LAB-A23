@@ -43,11 +43,11 @@ To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, 
 | **KAWS**    | 717.30 | 2612.2 | 270.88 | 211.36 | 102.71 | 159.55 | 11.63 |
 | **KAWS+WS** | 718.95 | 2616.7 | 271.08 | 214.55 | 103.33 | 160.33 | 11.65 |
 
-## IPC Performance of Different Warp Schedulers (Normalised to LRR without Warp Sharing)
+## IPC Performance of Different Warp Schedulers (Normalised to LRR)
 
 <img width="1000" src="EndSem_img/IPC.png">
 
-## With and Without Warp Sharing (Normalised to LRR)
+## With and Without Warp Sharing (Normalised to LRR without Warp Sharing)
 
 ### KAWS
 
