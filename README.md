@@ -30,7 +30,7 @@ To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, 
 
 ## IPC Performance of Different Warp Schedulers (Normalised to LRR)
 
-<img width="1000" src="EndSem_img/endsem_img1.png">
+<img width="1000" src="EndSem_img/endsem_img1_fs_12.png">
 
 ## With and Without Warp Sharing (Normalised to LRR without Warp Sharing)
 
