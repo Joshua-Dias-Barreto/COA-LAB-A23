@@ -74,9 +74,9 @@ kaws = [
 gto= [(100*value)/float(lrr[index]) for index,value in enumerate(gto)]
 kaws= [(100*value)/float(lrr[index]) for index,value in enumerate(kaws)]
 lrr= [(100*value)/float(lrr[index]) for index,value in enumerate(lrr)]
-plt.figure(figsize=(20, 10))
+plt.figure(figsize=(15, 10))
 
-bar_width = 0.285  # Width of the bars
+bar_width = 0.29  # Width of the bars
 index = range(len(applications))  # Index for x-axis positioning
 
 # Plot IPC for Scheduler 1
@@ -95,7 +95,7 @@ def add_labels(bars):
         va = 'bottom' if bars == bars3 else 'bottom'
         if bars != bars1 :
          plt.text(bar.get_x() + bar.get_width() / 2, height, f'{height:0.2f}',
-                  ha='center', va=va, fontsize=10)
+                  ha='center', va=va, fontsize=8)
 
 add_labels(bars1)
 add_labels(bars2)
@@ -106,7 +106,7 @@ plt.xlabel('Application')
 plt.ylabel('Instruction per Cycle (IPC) Normalized to LRR')
 plt.title(title)
 plt.xticks([i + bar_width for i in index], applications)
-plt.legend()
+plt.legend(loc='upper left',bbox_to_anchor=(1,1))
 
 # Show the plot
 plt.grid(True)
