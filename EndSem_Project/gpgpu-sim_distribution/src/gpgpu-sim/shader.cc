@@ -43,7 +43,14 @@
 #include "icnt_wrapper.h"
 #include "mem_fetch.h"
 #include "mem_latency_stat.h"
+
+// **************************************KAWS-Changes************************************
+// Added extra header file which will contains the enum required for the integer
+// pointer array used to implement warp sharing to store the scheculer_id where
+// the availability of OCU is detected.
+
 #include "scheduler_id.h"
+
 #include "shader_trace.h"
 #include "stat-tool.h"
 #include "traffic_breakdown.h"
@@ -1661,6 +1668,8 @@ void oldest_scheduler::order_warps() {
 // The order_warps function is used to order the warps in the next_cycle.
 // ORDERING_OLDEST_THEN_PROGRESS was added to the enum OrderingType in the
 // shader.h file to denote KAWS to the order_by_priority function.
+// Also, additional parameter sort_warps_by_progress was added to the
+// order_by_priority function.
 
 void kaws_scheduler::order_warps() {
   order_by_priority(m_next_cycle_prioritized_warps, m_supervised_warps,
@@ -3867,9 +3876,13 @@ int scheduler_unit::getMaxCta() {
   return m_shader->get_config()->max_cta(*(m_shader->get_kernel_info()));
 }
 
-bool scheduler_unit::getLastCtaIssued() { return m_shader->last_cta_fetched; }
-
 int scheduler_unit::getIssuedCtaCount() { return m_shader->issued_cta_count; }
+
+// **************************************KAWS-Changes************************************
+// Implementation of the getLastCtaIssued() function defined in the
+// scheduler_unit class. This function returns the boolean value of the
+// last_cta_fetched variable in the shader_core_ctx class.
+bool scheduler_unit::getLastCtaIssued() { return m_shader->last_cta_fetched; }
 
 bool shader_core_ctx::warp_waiting_at_mem_barrier(unsigned warp_id) {
   if (!m_warp[warp_id]->get_membar()) return false;

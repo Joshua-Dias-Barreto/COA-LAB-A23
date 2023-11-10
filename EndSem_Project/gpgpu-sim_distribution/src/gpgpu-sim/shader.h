@@ -103,7 +103,11 @@ class shd_warp_t {
       : m_shader(shader), m_warp_size(warp_size) {
     m_stores_outstanding = 0;
     m_inst_in_pipeline = 0;
+
+    // **************************************KAWS-Change*******************************************
+    // Initialize instruction issue count to 0 in the constructor.
     inst_issued_count = 0;
+
     reset();
   }
   void reset() {
@@ -120,9 +124,9 @@ class shd_warp_t {
     m_next = 0;
 
     // **************************************KAWS-Change*******************************************
-    // Initialize instruction issue count to 0.
-
+    // Initialize instruction issue count to 0 in the reset function.
     inst_issued_count = 0;
+
     // Jin: cdp support
     m_cdp_latency = 0;
     m_cdp_dummy = false;
@@ -348,15 +352,17 @@ enum concrete_scheduler {
 class scheduler_unit {  // this can be copied freely, so can be used in std
                         // containers.
  public:
-  scheduler_unit(shader_core_stats *stats, shader_core_ctx *shader,
-                 Scoreboard *scoreboard, simt_stack **simt,
-                 std::vector<shd_warp_t *> *warp, register_set *sp_out,
-                 register_set *dp_out, register_set *sfu_out,
-                 register_set *int_out, register_set *tensor_core_out,
-                 std::vector<register_set *> &spec_cores_out,
-                 register_set *mem_out, int id,
-                 std::string scheduler_type = "other",
-                 bool isWarpSharing = false)
+  scheduler_unit(
+      shader_core_stats *stats, shader_core_ctx *shader, Scoreboard *scoreboard,
+      simt_stack **simt, std::vector<shd_warp_t *> *warp, register_set *sp_out,
+      register_set *dp_out, register_set *sfu_out, register_set *int_out,
+      register_set *tensor_core_out,
+      std::vector<register_set *> &spec_cores_out, register_set *mem_out,
+      int id,
+      // **************************************KAWS-Change*******************************************
+      // Added 2 new arguments to the constructor to denote the type of
+      // scheduler and whether the scheduler has warp sharing enabled or not.
+      std::string scheduler_type = "other", bool isWarpSharing = false)
       : m_supervised_warps(),
         m_stats(stats),
         m_shader(shader),
@@ -420,7 +426,12 @@ class scheduler_unit {  // this can be copied freely, so can be used in std
     // No greedy scheduling based on last to issue. Only the priority function
     // determines priority
     ORDERED_PRIORITY_FUNC_ONLY,
+
+    // **************************************KAWS-Change*******************************************
+    // Added a new value to the enum OrderingType to denote KAWS scheduler in
+    // the order_by_priority function in shader.cc.
     ORDERING_OLDEST_THEN_PROGRESS,
+
     NUM_ORDERING,
   };
   template <typename U>
@@ -449,6 +460,9 @@ class scheduler_unit {  // this can be copied freely, so can be used in std
       const std::vector<shd_warp_t *>::const_iterator &prioritized_iter);
   inline int get_sid() const;
 
+  // **************************************KAWS-Change*******************************************
+  // Defining 2 new variables to denote the type of scheduler and whether the
+  // scheduler has warp sharing enabled or not.
   std::string scheduler_type;
   bool isWarpSharing;
 
@@ -541,6 +555,10 @@ class oldest_scheduler : public scheduler_unit {
   }
 };
 
+// **************************************KAWS-Change*******************************************
+// Added new class for KAWS scheduler which is derived from the scheduler_unit
+// class.
+
 class kaws_scheduler : public scheduler_unit {
  public:
   kaws_scheduler(shader_core_stats *stats, shader_core_ctx *shader,
@@ -550,9 +568,14 @@ class kaws_scheduler : public scheduler_unit {
                  register_set *int_out, register_set *tensor_core_out,
                  std::vector<register_set *> &spec_cores_out,
                  register_set *mem_out, int id, bool isWarpSharing = false)
-      : scheduler_unit(stats, shader, scoreboard, simt, warp, sp_out, dp_out,
-                       sfu_out, int_out, tensor_core_out, spec_cores_out,
-                       mem_out, id, "kaws", isWarpSharing) {}
+      : scheduler_unit(
+            stats, shader, scoreboard, simt, warp, sp_out, dp_out, sfu_out,
+            int_out, tensor_core_out, spec_cores_out,
+            // **************************************KAWS-Change*******************************************
+            // "kaws" and isWarpSharing are passed to the 2 new arguments,
+            // scheduler_type ans isWarpSharing, defined in the scheduler_unit
+            // class.
+            mem_out, id, "kaws", isWarpSharing) {}
   virtual ~kaws_scheduler() {}
   virtual void order_warps();
   virtual void done_adding_supervised_warps() {

@@ -1680,7 +1680,7 @@ void shader_core_ctx::issue_block2core(kernel_info_t &kernel) {
   m_n_active_cta++;
 
   issued_cta_count++;
-  cout << "Issued CTA count: " << issued_cta_count << endl;
+  // cout << "Issued CTA count: " << issued_cta_count << endl;
 
   shader_CTA_count_log(m_sid, 1);
   SHADER_DPRINTF(LIVENESS,
