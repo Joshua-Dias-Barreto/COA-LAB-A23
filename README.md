@@ -77,9 +77,9 @@ To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, 
 
 # Stall Cycles
 
-## Total Simulation Cycles (gpu_tot_sim_cycles)
+## Total Simulation Cycles (Normalised to LRR)
 
-(Normalised to LRR)
+This found in the output log under the name gpu_tot_sim_cycles
 
 <img width="1000" src="EndSem_img/gpu_tot_sim_cycle.png">
 
