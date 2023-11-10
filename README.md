@@ -79,8 +79,10 @@ To see the changes in code, search for "_KAWS-Changes_" in the files shader.cc, 
 
 ## Total Simulation Cycles (Normalised to LRR)
 
-This found in the output log under the name gpu_tot_sim_cycles
+This is found in the output log under the name gpu_tot_sim_cycles
 
 <img width="1000" src="EndSem_img/gpu_tot_sim_cycle.png">
+
+# Note
 
 Although our values of the evaluation metrics(IPC, Stall Cycles) do not completely match with that of the research paper, the values have a similar trend as given in the research paper. This is becuase we scaled down the inputs to the applications/benchmarks so that they execute faster. Hence, we can see a similar trend in our data if not the exact same values.
